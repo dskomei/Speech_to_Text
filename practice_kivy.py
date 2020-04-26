@@ -12,6 +12,17 @@ from kivy.properties import StringProperty
 LabelBase.register(DEFAULT_FONT, 'ipaexg.ttf')
 
 
+class SpeechToTextApp(App):
+    def __init__(self, **kwargs):
+
+        super(SpeechToTextApp, self).__init__(**kwargs)
+        self.title = 'Speech to Text'    # ウィンドウの名前を変更
+
+    def build(self):
+        text_widget = TextWidget()
+        return text_widget
+
+
 class TextWidget(Widget):
     text = StringProperty()    
 
@@ -29,19 +40,6 @@ class TextWidget(Widget):
     ## 終了ボタンを押したときの処理を行う関数
     def buttonClickedEnd(self):        
         self.text = ''
-
-
-
-class SpeechToTextApp(App):
-    def __init__(self, **kwargs):
-
-        super(SpeechToTextApp, self).__init__(**kwargs)
-        self.title = 'Speech to Text'    # ウィンドウの名前を変更
-
-    def build(self):
-        text_widget = TextWidget()
-        return text_widget
-
 
 
 if __name__ == '__main__':
